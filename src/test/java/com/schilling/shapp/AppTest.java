@@ -1,4 +1,4 @@
-package sh.platform.template;
+package com.schilling.shapp;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
