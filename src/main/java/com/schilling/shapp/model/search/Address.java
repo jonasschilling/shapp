@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Address {
     private long id;
     private String street;
-    private String houseNumber;
+    private int houseNumber;
     private String postalCode;
     private String city;
     private String country;
@@ -26,11 +26,11 @@ public class Address {
         this.street = street;
     }
 
-    public String getHouseNumber() {
+    public int getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(String houseNumber) {
+    public void setHouseNumber(int houseNumber) {
         this.houseNumber = houseNumber;
     }
 
@@ -58,12 +58,21 @@ public class Address {
         this.country = country;
     }
 
+    public Address(long id, String street, int houseNumber, String postalCode, String city, String country) {
+        this.id = id;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.country = country;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return id == address.id && street.equals(address.street) && houseNumber.equals(address.houseNumber) && postalCode.equals(address.postalCode) && city.equals(address.city) && country.equals(address.country);
+        return id == address.id && houseNumber == address.houseNumber && Objects.equals(street, address.street) && Objects.equals(postalCode, address.postalCode) && Objects.equals(city, address.city) && Objects.equals(country, address.country);
     }
 
     @Override

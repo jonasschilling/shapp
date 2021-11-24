@@ -19,7 +19,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public User addUser(User user) {
-        return userRepo.save(user);
+        //return userRepo.save(user);
+        return null;
     }
 
     public List<User> addSomeUsers(List<User> users) {
@@ -30,11 +31,13 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<User> findAllUsers() {
-        return userRepo.findAll();
+        //return userRepo.findAll();
+        return userRepo.getAllUsers();
     }
 
     public User updateUser(User user) {
-        return userRepo.save(user);
+        //return userRepo.save(user);
+        return null;
     }
 
     public User findUserByUsername(String username) {
@@ -42,7 +45,7 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new UserNotFoundException("User with username " + username + " could not be found."));
     }
 
-    public void deleteUserByUsername(String username) {
-        userRepo.deleteUserByUsername(username);
+    public List<User> deleteUserByUsername(String username) {
+        return userRepo.deleteUserByUsername(username);
     }
 }
