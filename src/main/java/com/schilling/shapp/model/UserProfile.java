@@ -1,4 +1,4 @@
-package com.schilling.shapp.profile;
+package com.schilling.shapp.model;
 
 import java.util.Objects;
 import java.util.Optional;
