@@ -1,0 +1,4 @@
+---
+applications:
+  - name: shapp
+    buildpack: sap_java_buildpack # buildpacks parameter not yet supported by bgdeploy https://github.com/bluemixgaragelondon/cf-blue-green-deploy/issues/83
