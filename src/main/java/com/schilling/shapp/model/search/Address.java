@@ -1,21 +1,23 @@
 package com.schilling.shapp.model.search;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Objects;
 
 public class Address {
-    private long id;
+
     private String street;
-    private int houseNumber;
+    private String houseNumber;
     private String postalCode;
     private String city;
     private String country;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public Address(String street, String houseNumber, String postalCode, String city, String country) {
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.country = country;
     }
 
     public String getStreet() {
@@ -26,11 +28,11 @@ public class Address {
         this.street = street;
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(int houseNumber) {
+    public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
     }
 
@@ -58,25 +60,16 @@ public class Address {
         this.country = country;
     }
 
-    public Address(long id, String street, int houseNumber, String postalCode, String city, String country) {
-        this.id = id;
-        this.street = street;
-        this.houseNumber = houseNumber;
-        this.postalCode = postalCode;
-        this.city = city;
-        this.country = country;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return id == address.id && houseNumber == address.houseNumber && Objects.equals(street, address.street) && Objects.equals(postalCode, address.postalCode) && Objects.equals(city, address.city) && Objects.equals(country, address.country);
+        return Objects.equals(street, address.street) && Objects.equals(houseNumber, address.houseNumber) && Objects.equals(postalCode, address.postalCode) && Objects.equals(city, address.city) && Objects.equals(country, address.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, street, houseNumber, postalCode, city, country);
+        return Objects.hash(street, houseNumber, postalCode, city, country);
     }
 }

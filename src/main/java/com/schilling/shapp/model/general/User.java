@@ -4,31 +4,22 @@ import com.schilling.shapp.model.search.Address;
 
 import java.util.Objects;
 
-//@Entity
-//public class User implements Serializable {
 public class User {
-    //@Id
-    //@Column(nullable = false)
-    private String username;
-    //@Column(nullable = false)
-    private String firstname;
-    //@Column(nullable = false)
-    private String lastname;
-    //@Column(nullable = false)
+
+    private String userName;
+    private String firstName;
+    private String lastName;
     private Address address;
-    //@Column(nullable = false)
     private char gender;
-    //@Column(nullable = false)
     private String email;
-    //@Column(nullable = false)
     private String password;
 
     public User() {};
 
-    public User(String username, String firstname, String lastname, Address address, char gender, String email, String password) {
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public User(String userName, String firstName, String lastName, Address address, char gender, String email, String password) {
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.address = address;
         this.gender = gender;
         this.email = email;
@@ -36,27 +27,27 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String userName) {
+        this.userName = userName;
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstname(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastname(String lastName) {
+        this.lastName = lastName;
     }
 
     public Address getAddress() {
@@ -96,11 +87,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return gender == user.gender && Objects.equals(username, user.username) && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname) && Objects.equals(address, user.address) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
+        return gender == user.gender && Objects.equals(userName, user.userName) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(address, user.address) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, firstname, lastname, address, gender, email, password);
+        return Objects.hash(userName, firstName, lastName, address, gender, email, password);
     }
 }

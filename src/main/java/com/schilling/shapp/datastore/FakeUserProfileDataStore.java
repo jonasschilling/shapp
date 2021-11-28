@@ -10,14 +10,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class FakeUserProfileDataStore implements UserRepo {
+//public class FakeUserProfileDataStore implements UserRepo {
+public class FakeUserProfileDataStore {
 
     private static final List<User> USERS = new ArrayList<>();
     private static final List<Address> ADDRESS_LIST = new ArrayList<>();
 
     static {
 
-        ADDRESS_LIST.add(new Address(1, "Untere Breite Straße", 6, "88212", "Ravensburg", "Germany"));
+        ADDRESS_LIST.add(new Address("Untere Breite Straße", "6", "88212", "Ravensburg", "Germany"));
 
         USERS.add(new User("jonasschilling", "Jonas", "Schilling", ADDRESS_LIST.get(0), 'm', "schilling.jonas1@web.de", "password123"));
         USERS.add(new User("linusbrugger", "Linus", "Brugger", ADDRESS_LIST.get(0), 'm', "linus@brugger-rv.de", "password123"));
@@ -25,23 +26,23 @@ public class FakeUserProfileDataStore implements UserRepo {
 
     }
 
-    @Override
+    //@Override
     public List<User> getAllUsers() {
         return USERS;
     }
 
-    @Override
-    public List<User> deleteUserByUsername(String username) {
-        USERS.remove(getUserByUsername(username));
+    //@Override
+    public List<User> deleteUserByUsername(String userName) {
+        USERS.remove(getUserByUsername(userName));
         return USERS;
     }
 
-    @Override
-    public Optional<User> findUserByUsername(String username) {
-        return getUserByUsername(username);
+    //@Override
+    public Optional<User> findUserByUsername(String userName) {
+        return getUserByUsername(userName);
     }
 
-    private Optional<User> getUserByUsername(String username) {
-        return USERS.stream().filter(u -> u.getUsername().equals(username)).findFirst();
+    private Optional<User> getUserByUsername(String userName) {
+        return USERS.stream().filter(u -> u.getUsername().equals(userName)).findFirst();
     }
 }
